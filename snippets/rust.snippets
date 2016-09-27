@@ -158,6 +158,24 @@ snippet trait "Trait definition"
 	trait ${1:Name} {
 		${0}
 	}
+snippet dfault "Default trait implementation"
+	impl Default for ${1:Name} {
+		fn default() -> Self {
+			${0}
+		}
+	}
+snippet dsplay "Debug trait implementation"
+	impl std::fmt::Debug for ${1:Name} {
+		fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
+			write!(f, "${2}", ${3})
+		}
+	}
+snippet dsplay "Display trait implementation"
+	impl std::fmt::Display for ${1:Name} {
+		fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
+			write!(f, "${2}", ${3})
+		}
+	}
 snippet drop "Drop trait implementation (destructor)"
 	impl Drop for ${1:Name} {
 		fn drop(&mut self) {
