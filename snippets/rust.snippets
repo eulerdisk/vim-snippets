@@ -32,13 +32,13 @@ snippet main "Main function"
 		${0}
 	}
 snippet let "let variable declaration with type inference"
-	let ${1}  = ${2};
+	let ${1} = ${2};
 snippet lett "let variable declaration with explicit type annotation"
-	let ${1}: ${2}  = ${3};
+	let ${1}: ${2} = ${3};
 snippet letm "let mut variable declaration with type inference"
-	let mut ${1}  = ${2};
+	let mut ${1} = ${2};
 snippet lettm "let mut variable declaration with explicit type annotation"
-	let mut ${1}: ${2}  = ${3};
+	let mut ${1}: ${2} = ${3};
 snippet pln "println!"
 	println!("${1}");
 snippet pln, "println! with format param"
@@ -46,9 +46,6 @@ snippet pln, "println! with format param"
 # Modules
 snippet ec "extern crate"
 	extern crate ${1:sync};
-snippet ecl "extern crate log"
-	#[macro_use]
-	extern crate log;
 snippet mod
 	mod ${1:`substitute(vim_snippets#Filename(), '\(_\|^\)\(.\)', '\u\2', 'g')`} {
 		${0}
@@ -110,6 +107,10 @@ snippet mat "match pattern"
 	}
 snippet case "Case clause of pattern match"
 	${1:_} => ${2:expression}
+snippet caseb "Case clause with {}, of pattern match"
+	${1:_} => {
+		${2:expression}
+	},
 snippet loop "loop {}" b
 	loop {
 		${0}
@@ -169,10 +170,6 @@ snippet ss "static string declaration"
 snippet stat "static item declaration"
 	static ${1}: ${2:usize} = ${0};
 # Concurrency
-snippet scoped "spawn a scoped thread"
-	thread::scoped(${1:move }|| {
-		${0}
-	});
 snippet spawn "spawn a thread"
 	thread::spawn(${1:move }|| {
 		${0}
@@ -184,3 +181,5 @@ snippet as "assert!"
 	assert!(${1:predicate})
 snippet ase "assert_eq!"
 	assert_eq!(${1:expected}, ${2:actual})
+snippet asne "assert_ne!"
+	assert_ne!(${1:expected}, ${2:actual})
